@@ -1,0 +1,332 @@
+$navbar-height: 5rem;
+$navbar-mobile-height: 2.5em;
+
+@import "../node_modules/bulma/sass/utilities/initial-variables";
+@import "../node_modules/bulma/sass/utilities/functions";
+
+@import "../node_modules/react-image-gallery/styles/scss/image-gallery.scss";
+@import "../node_modules/react-image-gallery/styles/css/image-gallery.css";
+@import url('https://fonts.googleapis.com/css?family=Big+Shoulders+Display|Dancing+Script&display=swap');
+
+// 2. Setup your Custom Colors
+$purple: hsl(275,87%,45%);
+$purple-invert: findColorInvert($purple);
+
+// 3. Add new color variables to the color map.
+@import "../node_modules/bulma/sass/utilities/derived-variables.sass";
+
+$addColors: (
+  "purple":($purple, $purple-invert),
+);
+
+$colors: map-merge($colors, $addColors);
+
+$footer-padding: 3rem 1.5rem 3rem;
+
+@import '../node_modules/animate.css';
+@import '../node_modules/bulma/bulma';
+@import '../node_modules/bulma-extensions/src/sass/index';
+@import "../node_modules/bulma-extensions/bulma-carousel/src/sass/index";
+
+
+//SET COLOR VARIABLES
+$green : rgb(0, 209, 178);
+$red : rgb(255, 56, 96);
+$pink : #ff4590;
+$white : rgb(245, 245, 245);
+$grey : rgb(181, 181, 181);
+$grey : gray;
+$yellow : rgb(255, 221, 87);
+
+//NAVIGATION STYLES
+a.navbar-item{
+
+  border-bottom: solid 5px rgba(0,0,0,0);
+  img{
+    max-height: 4.8em;
+  }
+}
+
+a.navbar-item:hover, .active{}
+
+a.navbar-item:hover.cGreen,a.navbar-item.cGreen.active{
+  border-bottom: solid 5px $green;
+  color: $green;
+}
+
+a.navbar-item:hover.cRed,a.navbar-item.cRed.active{
+  border-bottom: solid 5px $red;
+  color: $red;
+}
+
+a.navbar-item:hover.cPink,a.navbar-item.cPink.active{
+  border-bottom: solid 5px $pink;
+}
+
+a.navbar-item:hover.cYellow,a.navbar-item.cYellow.active{
+  border-bottom: solid 5px $yellow;
+  color: $yellow;
+}
+
+a.navbar-item:hover.cGrey,a.navbar-item.cGrey.active{
+  border-bottom: solid 5px $grey;
+  color: $grey;
+}
+
+//MAIN CONTENT STYLE
+.content.cRed{
+  border-top: solid 8px $red;
+}
+
+.hero{
+  background-color: $white;
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: auto;
+  margin-right: auto;
+  overflow-x: hidden;
+
+  .hero-head{
+    width: 100vw;
+    .navbar{
+      background-color: $white !important;
+      height: $navbar-height;
+      .navbar-brand{
+        font-family: 'Dancing Script', cursive;
+        .text{
+          font-size: 2.4em;
+          line-height: 1.2em;
+          color:black;
+          margin-left: .5em;
+          margin-right: .5em;
+          margin-top: .2em;
+        }
+        .img{
+          height:80px;
+          margin-top: .5em;
+        }
+      }
+      .navbar-end{
+        padding-right: .5em;
+        color: gray;
+      }
+      a.navbar-item{
+        img{
+          max-height: 4.8em;
+        }
+      }
+    }
+  }
+  .hero-body{
+    padding: 0px;
+    margin: 0px;
+    max-width: 100vw;
+    background-color: lightgrey;
+
+    .tile{
+      .is-parent{
+          padding: 0px;
+      }
+      .centered{
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+      }
+    }
+    :first-child{
+      align-self: flex-start;
+    }
+
+    .about,.contact,.social{
+      padding: 2em;
+      color: $dark;
+      background-color: lightgrey;
+    }
+    .contact{
+      min-height:30vh;
+      .goodRStatus{
+        color: $green;
+      }
+      .badRStatus{
+        color: $red;
+      }
+    }
+
+    .main{
+      position: relative;
+      width: 100%;
+      background-color: $white;
+
+      .content{
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+
+        .cGrey{
+          margin:auto;
+        }
+
+        .customGallery{
+          img{
+            animation-name: fadeIn;
+            animation-duration: 1.5s;
+            border: solid 3px $dark;
+          }
+        }
+
+        &.cRed{
+          border-top: solid 15px $red;
+          .customGallery{
+            img:hover{
+                border-color: $red;
+            }
+          }
+        }
+        &.cGreen{
+          border-top: solid 15px $green;
+          .customGallery{
+            img:hover{
+                border-color: $green;
+            }
+          }
+        }
+        &.cYellow{
+          border-top: solid 15px $yellow;
+          .customGallery{
+            img:hover{
+                border-color: $yellow;
+            }
+          }
+        }
+        &.cGrey{
+          border-top: solid 15px $grey;
+          .customGallery{
+            img:hover{
+                border-color: $grey;
+            }
+          }
+        }
+      }
+
+      .picBox{
+        position: relative;
+        width: 100%;
+        z-index: 95;
+        overflow: hidden;
+
+        h4{
+          position: absolute;
+          top: 45%;
+          text-align: center;
+          vertical-align: middle;
+          width: 100%;
+          padding: .5em 0 .5em 0;
+          display: none;
+          border: solid 1px white;
+          border-left: 0px;
+          border-right: 0px;
+        }
+        img{
+          position: relative;
+          filter: grayscale(100%);
+          height: 100%;
+          animation-name: fadeIn;
+          animation-duration: .5s;
+          width: 100%;
+        }
+        &:hover{
+          h4{
+            color: white;
+            display: block;
+            background-color: rgba(0,0,0,.6);
+            animation-name: fadeInUp;
+            animation-duration: .3s;
+          }
+          img{
+            filter: grayscale(20%);
+            filter: blur(2px);
+          }
+        }
+      }
+    }
+    .about{
+      border-bottom: solid 1px $grey;
+      justify-content: center;
+    }
+    .contact{
+      article{
+        width: 100%;
+      }
+      form input:invalid, form textarea:invalid{
+        border: solid 2px $red;
+      }
+
+      form input:valid, form textarea:valid{
+        border: solid 2px $green;
+      }
+    }
+    .social{
+      border-top: solid 1px $grey;
+      justify-content: center;
+    }
+  }
+}
+
+//FOOTER STYLES
+.hero-foot{
+  color: lightgrey;
+  padding: 1.5em;
+  .align-right{
+    justify-content: end;
+    .text{
+      margin-right: .5em;
+      font-size: 1.5em;
+    }
+  }
+  .centered,.text{
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  .centered{
+    justify-content: center;
+  }
+}
+
+//MOBILE DEVICE ADJUSTMENTS
+
+@media screen and (max-width: $desktop - 1px){
+
+  .hero{
+    .hero-head{
+      .navbar{
+        height: $navbar-mobile-height;
+        a.navbar-item{
+
+          img{
+            max-height: 4.2em;
+          }
+        }
+        .navbar-brand{
+          .text{
+            font-size: 1.4em;
+            line-height: 1.2em;
+            color:black;
+          }
+          .img{
+            height:60px;
+            margin-top: .0em;
+          }
+        }
+        .navbar-end{
+          display: none;
+        }
+      }
+    }
+    .hero-foot{
+      width: 101.39vw;
+    }
+  }
+  .about{
+    border-bottom: solid 1px $grey;
+  }
+}
